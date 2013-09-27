@@ -1,3 +1,4 @@
+execute pathogen#infect()
 syntax on
 
 " Wrap gitcommit file types at the appropriate length
@@ -6,7 +7,7 @@ filetype indent plugin on
 set nocompatible
 
 " set up color scheme
-colorscheme railscasts
+colorscheme vividchalk
 set t_Co=256
 
 " prevents security exploits
