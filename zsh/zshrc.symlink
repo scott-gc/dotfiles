@@ -1,4 +1,5 @@
 source /opt/boxen/env.sh
+[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh && nvm use 0.8.8
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/dotfiles
 
