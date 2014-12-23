@@ -4,8 +4,8 @@
 [hub]
         protocol = https
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
+        name = scottgc
+        email = scott.gc@gmail.com
 [credential]
         helper = GIT_CREDENTIAL_HELPER
 [alias]
