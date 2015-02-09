@@ -2,7 +2,7 @@ execute pathogen#infect()
 syntax on
 
 " Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+filetype plugin indent on
 " no need to be vi compatible
 set nocompatible
 
@@ -106,9 +106,18 @@ let NERDTreeShowBookmarks = 1
 " Show hidden files
 let NERDTreeShowHidden = 1
 " Don't hijack NETRW
- "let NERDTreeHijackNetrw = 0
 let NERDTreeHijackNetrw = 1
 let NERDTreeIgnore=['\.$', '\~$']
+
+"Syntastic setup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "tabs
 nnoremap th :tabprevious<CR>
