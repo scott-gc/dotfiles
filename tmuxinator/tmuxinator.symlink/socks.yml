@@ -1,7 +1,7 @@
-# ~/.tmuxinator/api.yml
+# ~/.tmuxinator/socks.yml
 
-name: api
-root: ~/projects/api
+name: socks
+root: ~/projects/socks
 
 # Optional tmux socket
 # socket_name: foo
