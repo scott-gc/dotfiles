@@ -56,14 +56,15 @@ vnoremap <tab> %
 
 " deal with line length
 set wrap
-set textwidth=79
+set textwidth=100
 set formatoptions=qrn1
-set colorcolumn=85
+set colorcolumn=85,100
 
 " show hidden char
 set nolist
 set listchars=tab:▸\ ,eol:¬
 nnoremap <leader>l :set list<cr>
+nnoremap <leader>nl :set nolist<cr>
 
 " turn off the arrow keys
 nnoremap <up> <nop>
@@ -92,6 +93,22 @@ inoremap jj <ESC>
 inoremap <C-T> <ESC>:NERDTreeToggle<CR>
 nnoremap <C-T> :NERDTreeToggle<CR>
 vnoremap <C-T> :NERDTreeToggle<CR>
+
+map <leader>dc :NERDTreeClose<cr>
+map <leader>do :NERDTree<cr>
+map <leader>df :NERDTreeFind<cr>
+" Enable nice colors
+let NERDChristmasTree = 1
+" Make it easy to see where we are
+let NERDTreeHighlightCursorline = 1
+" Make bookmarks visible
+let NERDTreeShowBookmarks = 1
+" Show hidden files
+let NERDTreeShowHidden = 1
+" Don't hijack NETRW
+ "let NERDTreeHijackNetrw = 0
+let NERDTreeHijackNetrw = 1
+let NERDTreeIgnore=['\.$', '\~$']
 
 "tabs
 nnoremap th :tabprevious<CR>
@@ -125,11 +142,11 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>
 
 " allow me to create note quicly
-map <leader>n :sp ~/notes/stream-`date '+\%Y\%m\%d\%H\%M\%S'`.txt<CR><esc>:!ln -s % ~/notes/latest.txt<CR><leader>h
+map <leader>n :sp ~/Dropbox/Personal/notes/stream-`date '+\%Y\%m\%d\%H\%M\%S'`.txt<CR><esc>:!ln -s % ~/Dropbox/Personal/notes/latest.txt<CR><leader>h
 map <leader>h i<cr><esc>30i-<esc>a><esc> :r!date +'\%A \%v \%r'<cr>kJk<esc>64i=<esc>yypO
 
 " Vimwiki
- let wiki_1 = {}
+let wiki_1 = {}
 let wiki_1.path = '~/Dropbox/Personal/vimwiki'
 let wiki_1.syntax = 'markdown'
 let wiki_1.ext = '.md'
