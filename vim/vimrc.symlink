@@ -102,7 +102,7 @@ nnoremap tn :tabnew<CR>
 " strip all the trailing whitespace
 nnoremap <leader>W :%s\/s\+$//<cr>:let @/=''<CR>
 
-" access to ack
+" access to ack      
 nnoremap <leader>a :Ack
 
 " fold html tags
@@ -128,20 +128,31 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>
 map <leader>n :sp ~/notes/stream-`date '+\%Y\%m\%d\%H\%M\%S'`.txt<CR><esc>:!ln -s % ~/notes/latest.txt<CR><leader>h
 map <leader>h i<cr><esc>30i-<esc>a><esc> :r!date +'\%A \%v \%r'<cr>kJk<esc>64i=<esc>yypO
 
+" Vimwiki
+ let wiki_1 = {}
+let wiki_1.path = '~/Dropbox/Personal/vimwiki'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+let wiki_2 = {}
+let wiki_2.path = '~/Dropbox/SixSafety/vimwiki'
+let wiki_2.syntax = 'markdown'
+let wiki_2.ext = '.md'
+let g:vimwiki_list = [wiki_1, wiki_2]
+
 " turn space into a word highlighter
 nnoremap <space> viw 
 
 " allows me to delete lines in insert mode
-imap <c-d> <esc>ddi 
+imap <C-d> <esc>ddi 
 
 " upper case word from insert mode
-imap <c-u> <esc>vwUi 
+imap <C-u> <esc>vwUi 
 " toogle commands 
 nmap <C-N><C-N> :set invnumber<CR><ESC>
 
 " abbrivations
 " no need to type my email address alll the time
-iabbrev s@ scott.gibson-craig@gettyimages.com
+iabbrev s@ scottgc@sixsafetysystems.com
 
 " custom commands
 " Command to jump to hosts file
