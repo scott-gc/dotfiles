@@ -1,7 +1,7 @@
-# ~/.tmuxinator/api.yml
+# ~/.tmuxinator/ui.yml
 
-name: api
-root: ~/projects/api
+name: ui
+root: ~/projects/ui
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,7 +25,7 @@ windows:
         - vim
         - # empty
         - tail -f log/development.log
-        - guard
+        - # guard
   - server:
       panes:
-        - thin start -S "${BOXEN_SOCKET_DIR}/api"
+        - rails thin start -S "${BOXEN_SOCKET_DIR}/ui"
