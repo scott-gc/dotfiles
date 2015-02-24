@@ -1,0 +1,28 @@
+# ~/.tmuxinator/rails.yml
+
+name: stackabrick-api
+root: ~/project/stackabrick-api/
+
+# Optional. tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - editor:
+      layout: cd35,268x59,0,0{115x59,0,0,0,152x59,116,0[152x29,116,0{76x29,116,0,2,75x29,193,0,3},152x29,116,30,4]}
+      panes:
+        - vim
+        - # empty
+        - rails server
+        - # empty
