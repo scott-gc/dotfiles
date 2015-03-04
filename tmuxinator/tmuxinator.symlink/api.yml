@@ -28,4 +28,4 @@ windows:
         - guard
   - server:
       panes:
-        - thin start -S "${BOXEN_SOCKET_DIR}/api"
+        - rails server
