@@ -1,0 +1,20 @@
+# ~/.tmuxinator/brickradar.yml
+
+name: brickradar
+root: ~/src/brickradar
+
+# Optional. tmux socket
+socket_name: brickradar
+
+windows:
+  - editor:
+      layout: cd35,268x59,0,0{115x59,0,0,0,152x59,116,0[152x29,116,0{76x29,116,0,2,75x29,193,0,3},152x29,116,30,4]}
+      panes:
+        - vim
+        - # empty
+        - # empty
+        - # empty
+  - server:
+      layout: main-vertical
+      panes:
+        - rails server

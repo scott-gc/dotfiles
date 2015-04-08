@@ -27,5 +27,8 @@ windows:
         - tail -f log/development.log
         - guard
   - server:
+      layout: main-vertical
       panes:
         - rails server
+        - redis-server
+        - cd ~/src/ui/ && rails server
