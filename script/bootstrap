@@ -2,7 +2,7 @@
 #
 # bootstrap installs things.
 
-DOTFILES_ROOT="`~`"
+DOTFILES_ROOT="`pwd`"
 
 set -e
 
