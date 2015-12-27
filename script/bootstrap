@@ -37,10 +37,7 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
-    git_authorname=$1
-    git_authoremail=$2
-
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+    sed -e "s/AUTHORNAME/$1/g" -e "s/AUTHOREMAIL/$2/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
     success 'gitconfig'
   fi
