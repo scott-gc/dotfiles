@@ -12,7 +12,7 @@
 # ~/.osx — https://mths.be/osx
 
 # Ask for the administrator password upfront
-# sudo -v
+sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -149,9 +149,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
   sudo pmset -a hibernatemode 0
 
   # Remove the sleep image file to save disk space
-  sudo rm /private/var/vm/sleepimage
+  #sudo rm /private/var/vm/sleepimage
   # Create a zero-byte file instead…
-  sudo touch /private/var/vm/sleepimage
+  #sudo touch /private/var/vm/sleepimage
   # …and make sure it can’t be rewritten
   sudo chflags uchg /private/var/vm/sleepimage
 
@@ -174,7 +174,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
   defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
   # Disable “natural” (Lion-style) scrolling
-  defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+  defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
   # Increase sound quality for Bluetooth headphones/headsets
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -247,7 +247,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
   # Set Desktop as the default location for new Finder windows
   # For other paths, use `PfLo` and `file:///full/path/here/`
-  defaults write com.apple.finder NewWindowTarget -string "PfDe"
+  defaults write com.apple.finder NewWindowTarget -string "PfLo"
   defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
   # Show icons for hard drives, servers, and removable media on the desktop
@@ -257,7 +257,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
   defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
   # Finder: show hidden files by default
-  #defaults write com.apple.finder AppleShowAllFiles -bool true
+  defaults write com.apple.finder AppleShowAllFiles -bool true
 
   # Finder: show all filename extensions
   defaults write NSGlobalDomain AppleShowAllExtensions -bool true
