@@ -4,7 +4,10 @@ source /opt/boxen/env.sh
 export ZSH=$HOME/src/my/dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/projects
+export PROJECTS=~/src
+
+# add link to boost_root
+export BOOST_ROOT=/usr/local
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.

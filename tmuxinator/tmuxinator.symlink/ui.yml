@@ -1,7 +1,7 @@
 # ~/.tmuxinator/ui.yml
 
 name: ui
-root: ~/projects/ui
+root: ~/src/ui
 
 # Optional tmux socket
 # socket_name: foo
