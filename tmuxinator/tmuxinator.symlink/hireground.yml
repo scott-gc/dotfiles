@@ -8,9 +8,8 @@ socket_name: hireground
 
 windows:
   - editor:
-      layout: cd35,268x59,0,0{115x59,0,0,0,152x59,116,0[152x29,116,0{76x29,116,0,2,75x29,193,0,3},152x29,116,30,4]}
+      layout: 86cb,202x48,0,0{127x48,0,0,0,74x48,128,0[74x23,128,0,2,74x24,128,24,3]}
       panes:
         - vim
-        - # empty
         - # bundle exec guard
         - rails server
