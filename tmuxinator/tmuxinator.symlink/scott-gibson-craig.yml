@@ -1,9 +1,9 @@
-# ~/.tmuxinator/api.yml
+# ~/.tmuxinator/rails.yml
 
-name: api
-root: ~/src/api
+name: scott-gibson-craig
+root: ~/src/scott-gibson-craig/
 
-# Optional tmux socket
+# Optional. tmux socket
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
@@ -20,16 +20,8 @@ root: ~/src/api
 
 windows:
   - editor:
-      layout: cd35,268x59,0,0{115x59,0,0,0,152x59,116,0[152x29,116,0{76x29,116,0,2,75x29,193,0,3},152x29,116,30,4]}
+      layout: cd35,268x59,0,0{152x59,0,0,0,115x59,153,0[115x29,153,0,115x29,153,30,4]}
       panes:
         - vim
         - # empty
-        - bundle exec guard
-  - server:
-      layout: main-vertical
-      panes:
-        - rails server
-        - redis-server
-        - bundle exec sidekiq
-        - cd ~/src/ui/ && rails server
-        - cd ~/src/luci-ui/ && npm run dev
+        - grunt serve --watch
