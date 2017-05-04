@@ -26,22 +26,6 @@ fail () {
   exit
 }
 
-setup_gitconfig () {
-  if ! [ -f git/gitconfig.symlink ]
-  then
-    info 'setup gitconfig'
-
-    git_credential='cache'
-    if [ "$(uname -s)" == "Darwin" ]
-    then
-      git_credential='osxkeychain'
-    fi
-
-    sed -e "s/AUTHORNAME/$1/g" -e "s/AUTHOREMAIL/$2/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
-
-    success 'gitconfig'
-  fi
-}
 
 link_files () {
   ln -s $1 $2
@@ -115,20 +99,7 @@ install_dotfiles () {
   done
 }
 
-setup_gitconfig
 install_dotfiles
-
-# If we are on a mac, lets install and setup homebrew
-#if [ "$(uname -s)" == "Darwin" ]
-#then
-#  info "installing dependencies"
-#  if . bin/dot > /tmp/dotfiles-dot 2>&1
-#  then
-#    success "dependencies installed"
-#  else
-#    fail "error installing dependencies"
-#  fi
-#fi
 
 echo ''
 echo '  All installed!'
