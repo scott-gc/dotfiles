@@ -32,6 +32,7 @@ brew 'redis', restart_service: true
 brew 'shellcheck'
 brew 'write-good'
 brew 'github/bootstrap/elasticsearch@1.7'
+cask 'item2'
 cask 'appcleaner'
 cask 'cloudapp'
 cask 'doxie'
