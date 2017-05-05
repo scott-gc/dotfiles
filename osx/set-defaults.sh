@@ -210,7 +210,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
   defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
   # Stop iTunes from responding to the keyboard media keys
-  #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+  launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
   ###############################################################################
   # Screen                                                                      #
