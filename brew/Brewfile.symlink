@@ -32,7 +32,7 @@ brew 'redis', restart_service: true
 brew 'shellcheck'
 brew 'write-good'
 brew 'github/bootstrap/elasticsearch@1.7'
-cask 'item2'
+cask 'iterm2'
 cask 'appcleaner'
 cask 'cloudapp'
 cask 'doxie'
@@ -47,12 +47,3 @@ cask 'textexpander'
 cask 'vagrant'
 cask 'vmware-fusion'
 mas '1Password', id: 443987910
-mas 'Keynote', id: 409183694
-mas 'Mactracker', id: 430255202
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-mas 'Reeder', id: 880001334
-mas 'Remote Desktop', id: 409907375
-mas 'Sketch', id: 402476602
-mas 'Slack', id: 803453959
-mas 'Xcode', id: 497799835
