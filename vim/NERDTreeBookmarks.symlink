@@ -1,3 +1,5 @@
-root ~/
 dotfiles ~/.dotfiles
+root ~/
 source ~/src
+
+Personal-Wiki ~/Dropbox/Personal/vimwiki

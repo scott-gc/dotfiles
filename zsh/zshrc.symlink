@@ -39,5 +39,5 @@ for file in ${(M)config_files:#*/completion.zsh}
 do
   source $file
 done
-
+eval "$(rbenv init -)"
 unset config_files
