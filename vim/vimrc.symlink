@@ -160,7 +160,7 @@ nmap <C-N><C-N> :set invnumber<CR><ESC>
 
 " abbrivations
 " no need to type my email address alll the time
-iabbrev s@ scottgc@sixsafetysystems.com
+iabbrev s@ scott@gibson-craig.com
 
 " custom commands
 " Command to jump to hosts file
