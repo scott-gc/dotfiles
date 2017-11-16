@@ -85,3 +85,9 @@
 [submodule "vim/vim.symlink/bundle/tabular"]
 	path = vim/vim.symlink/bundle/tabular
 	url = git@github.com:godlygeek/tabular.git
+[submodule "vim/vim.symlink/bundle/json-formatter"]
+	path = vim/vim.symlink/bundle/json-formatter
+	url = git@github.com:callumlocke/json-formatter.git
+[submodule "vim/vim.symlink/bundle/json-formatter.vim"]
+	path = vim/vim.symlink/bundle/json-formatter.vim
+	url = git@github.com:XadillaX/json-formatter.vim.git

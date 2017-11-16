@@ -1,19 +1,16 @@
 execute pathogen#infect()
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
 filetype plugin indent on
 " no need to be vi compatible
 set nocompatible
 
-" set up color scheme
 colorscheme vividchalk
 set t_Co=256
 
 " prevents security exploits
 set modelines=0
 
-" set up tab details
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -37,10 +34,8 @@ set laststatus=2
 set relativenumber
 set undofile
 
-" leader keys
 let mapleader = ","
 
-" search stuff
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -54,7 +49,6 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-" deal with line length
 set wrap
 set textwidth=100
 set formatoptions=qrn1
