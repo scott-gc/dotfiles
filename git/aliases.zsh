@@ -22,3 +22,4 @@ alias grm="git status | grep deleted | awk '{\$1=\$2=\"\"; print \$0}' | \
 alias gcb='git copy-branch-name'
 alias gac='git add -A && git commit -m'
 alias ge='git-edit-new'
+alias gdlm='git-delete-local-merged'
