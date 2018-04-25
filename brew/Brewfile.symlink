@@ -7,7 +7,9 @@ tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/test-bot'
 tap 'petere/postgresql'
+
 brew 'alexjs'
+brew 'ack'
 brew 'cloud66/tap/c66cx'
 brew 'cloudfoundry/tap/cf-cli'
 brew 'certbot'
@@ -15,17 +17,18 @@ brew 'cmake'
 brew 'docker'
 brew 'docker-machine'
 brew 'git'
+brew 'github/bootstrap/elasticsearch@1.7'
 brew 'heroku'
 brew 'hub'
 brew 'hugo'
 brew 'imagemagick'
 brew 'jq'
 brew 'jsonlint'
-brew 'launchdns', restart_service: true
+brew 'launchdns', restart_service: false
 brew 'mas'
-brew 'memcached', restart_service: true
-brew 'mysql', restart_service: true
-brew 'nginx', restart_service: true
+brew 'memcached', restart_service: false
+brew 'mysql', restart_service: false
+brew 'nginx', restart_service: false
 brew 'node'
 brew 'node-build'
 brew 'nodenv'
@@ -43,8 +46,8 @@ brew 'selenium-server-standalone'
 brew 'shellcheck'
 brew 'sqlite'
 brew 'tmux'
+brew 'yarn'
 brew 'write-good'
-brew 'github/bootstrap/elasticsearch@1.7'
 cask '1password'
 cask 'appcleaner'
 cask 'docker'
