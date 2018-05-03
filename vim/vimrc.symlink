@@ -7,6 +7,7 @@ set nocompatible
 
 colorscheme vividchalk
 set t_Co=256
+hi Comment ctermfg=LightBlue
 
 " prevents security exploits
 set modelines=0
@@ -135,6 +136,9 @@ nnoremap <C-l> <C-w>l
 " quote text 
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>
 
+" clear leading spaces
+nnoremap <leader>x vwhx<esc>
+
 " Vimwiki
 let wiki_1 = {}
 let wiki_1.path = '~/Documents/vimwiki'
@@ -143,15 +147,17 @@ let wiki_1.ext = '.md'
 let g:vimwiki_list = [wiki_1]
 
 " turn space into a word highlighter
-nnoremap <space> viw 
+nnoremap <space> viw
 
 " allows me to delete lines in insert mode
 imap <C-d> <esc>ddi 
 
 " upper case word from insert mode
 imap <C-u> <esc>vwUi 
+
 " toogle commands 
 nmap <C-N><C-N> :set invnumber<CR><ESC>
+@s
 
 " abbrivations
 " no need to type my email address alll the time
