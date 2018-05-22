@@ -48,6 +48,7 @@ brew 'sqlite'
 brew 'tmux'
 brew 'yarn'
 brew 'write-good'
+
 cask '1password'
 cask 'appcleaner'
 cask 'docker'
