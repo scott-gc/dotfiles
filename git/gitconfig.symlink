@@ -10,22 +10,61 @@
         status = auto
         branch = auto
         ui = true
-[core]
-        excludesfile = ~/.gitignore
-        editor = vim
 [apply]
-        whitespace = nowarn
+        # Cleanup whitespace by default when apply patches.
+        whitespace = fix
 [mergetool]
+	      # Don't prompt before opening the merge tool.
+      	prompt = false
+      	# Don't keep backups of the merge tool inputs.
         keepBackup = false
+        # Don't keep the merge tool temporary input/output files.
+      	keepTemporaries = false
 [difftool]
         prompt = false
-[help]
-        autocorrect = 1
 [push]
         # See `git help config` (search for push.default)
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[pull]
+      	# Default to rebasing on pulls
+      	rebase = true
+[fetch]
+      	# Always prune when fetching (and pulling).
+      	prune = 1
+[rerere]
+      	# Store and re-use manual conflict resolution changes.
+      	enabled = 1
 [credential]
-	helper = osxkeychain
+      	helper = osxkeychain
+[gist]
+      	# Open GitHub Gist in browser after submission.
+      	browse = true
+[core]
+      	# Exclude everything this file. Used for general exclusions.
+      	excludesfile = ~/.gitignore
+      	# Set attributes on files. Used for general diff improvements.
+      	attributesfile = ~/.gitattributes
+      	# Don't prompt for commit messages for merge commits.
+      	mergeoptions = --no-edit
+      	commitGraph = true
+        editor = vim
+[help]
+        # Autocorrect mistyped commands.
+      	autocorrect = 1
+[diff]
+      	# Use the slower but better patience diff algorithm
+      	algorithm = patience
+      	# Use new diff algorithm to make e.g. function diffs look better.
+      	compactionheuristic = true
+[diff "xml"]
+      	textconv = xmllint --format --recover
+[rebase]
+      	# Run `git stash` if needed before a `git rebase`
+      	autoStash = true
+      	# Auto-add `--autosquash` to `git rebase`
+      	autoSquash = true
+[protocol]
+      	version = 2
