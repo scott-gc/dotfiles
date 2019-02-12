@@ -1,43 +1,148 @@
-execute pathogen#infect()
-syntax on
-
-filetype plugin indent on
+" Make Vim more useful
 set nocompatible
 
-set modelines=0
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
 
+" Enhance command-line completion
+set wildmenu
+set wildmode=list:longest
+
+" Allow cursor keys in insert mode
+set esckeys
+
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+
+" Optimize for fast terminal connections
+set ttyfast
+
+" Add the g flag to search/replace by default
+set gdefault
+
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+
+" Change mapleader
+let mapleader=","
+
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
+
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
+" Don’t create backups when editing files in certain directories
+set backupskip=/tmp/*,/private/tmp/*
+
+" Respect modeline in files
+set modeline
+set modelines=4
+
+" Enable per-directory .vimrc files and disable unsafe commands in them
+set exrc
+set secure
+
+" Enable line numbers
+set number
+
+" Enable syntax highlighting
+syntax on
+
+" Highlight current line
+set cursorline
+
+" Make tabs as wide as two spaces
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-set encoding=utf-8
-set scrolloff=3
-set autoindent
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-set cursorline
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set relativenumber
-set number
-set undofile
+" Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
 
-let mapleader = ","
+" Highlight searches
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
-nnoremap / /\v
-vnoremap / /\v
+" Ignore case of searches unless it containes an uppercase
 set ignorecase
 set smartcase
-set gdefault
+
+" Highlight dynamically as pattern is typed
 set incsearch
+
+" Enable mouse in all modes
+set mouse=a
+
+" Disable error bells
+set noerrorbells
+
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
+" Show the cursor position
+set ruler
+
+" Don’t show the intro message when starting Vim
+set shortmess=atI
+
+" Show the current mode
+set showmode
+
+" Show the filename in the window titlebar
+set title
+
+" Show the (partial) command as it’s being typed
+set showcmd
+
+" Use relative line numbers
+if exists("&relativenumber")
+	set relativenumber
+	au BufReadPost * set relativenumber
+endif
+
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
+
+" Auto Indent new lines
+set autoindent
+
+" jump to match bracket
 set showmatch
-set hlsearch
 
 " Setup statusline
 function! GitBranch()
@@ -54,25 +159,22 @@ set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
-set statusline+=\ %f
+set statusline+=\ %F
 set statusline+=%m\
+set statusline+=\ %l:%c
 set statusline+=%=
 set statusline+=%#CursorColumn#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
+set statusline+=\
 
-nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
-
+" wrap text to fit lints
 set wrap
-set textwidth=100
+set textwidth=120
 set formatoptions=qrn1
-set colorcolumn=85,100
+set colorcolumn=100,120
 
 " show hidden char
 set nolist
@@ -80,31 +182,5 @@ set listchars=tab:▸\ ,eol:¬
 nnoremap <leader>l :set list<cr>
 nnoremap <leader>nl :set nolist<cr>
 
-" turn off the arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
-
-" get help the right way
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
 " no need to hit shift key for this
 nnoremap ; :
-
-" do a quick excape
-inoremap qq <ESC>
-
-" turn space into a word highlighter
-nnoremap <space> viw
-
-" toogle commands 
-nmap <C-N><C-N> :set invnumber<CR><ESC>
