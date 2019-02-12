@@ -1,0 +1,110 @@
+execute pathogen#infect()
+syntax on
+
+filetype plugin indent on
+set nocompatible
+
+set modelines=0
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set relativenumber
+set number
+set undofile
+
+let mapleader = ","
+
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+
+" Setup statusline
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
+
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+set wrap
+set textwidth=100
+set formatoptions=qrn1
+set colorcolumn=85,100
+
+" show hidden char
+set nolist
+set listchars=tab:▸\ ,eol:¬
+nnoremap <leader>l :set list<cr>
+nnoremap <leader>nl :set nolist<cr>
+
+" turn off the arrow keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" get help the right way
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" no need to hit shift key for this
+nnoremap ; :
+
+" do a quick excape
+inoremap qq <ESC>
+
+" turn space into a word highlighter
+nnoremap <space> viw
+
+" toogle commands 
+nmap <C-N><C-N> :set invnumber<CR><ESC>
