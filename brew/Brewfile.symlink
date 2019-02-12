@@ -1,7 +1,20 @@
 cask_args appdir: '/Applications'
 
-tap 'homebrew/bundle'
-tap 'homebrew/core'
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/formula-analytics"
+tap "homebrew/services"
 
 brew 'coreutils'
-brew 'git'
+brew "git"
+brew "hub"
+brew "mas"
+brew "ssh-copy-id"
+brew "wget"
+
+cask "fork"
+cask "google-chrome"
+cask "java8"
