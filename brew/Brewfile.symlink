@@ -15,6 +15,9 @@ brew "mas"
 brew "ssh-copy-id"
 brew "wget"
 
+cask 'dropbox'
 cask "fork"
 cask "google-chrome"
+cask 'iterm2'
 cask "java8"
+cask 'spotify'
