@@ -12,6 +12,7 @@ brew 'coreutils'
 brew "git"
 brew "hub"
 brew "mas"
+brew "node-build"
 brew "nodenv"
 brew "ssh-copy-id"
 brew "wget"
