@@ -1,8 +1,12 @@
 # all temp files
 
-backups/**
-swaps/**
-undos/**
+backup/**
+swap/**
+undo/**
+
+!backup/.gitkeep
+!swap/.gitkeep
+!undo/.gitkeep
 
 # no need to commit bundles
 bundle/**
