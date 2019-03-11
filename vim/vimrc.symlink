@@ -32,8 +32,15 @@ set backspace=indent,eol,start      " allow deleting auto-indentation
 set wildmode=longest,list,full      " complete file names like bash first
 set wildmenu                        " enable bash-like file completion
 
+if !has('gui_running')
+  set t_Co=256
+endif
+
 " Show the filename in the window titlebar
 set title
+
+" show statusline
+set laststatus=2
 
 " Use relative paths in buffer list
 autocmd BufReadPost * silent! lcd .
@@ -42,6 +49,9 @@ autocmd BufReadPost * silent! lcd .
 
 " Toggle between relative and absolute numbers
 nnoremap <silent> <C-n> :call ToggleLineNumbers()<CR>
+
+" Toggle NerdTree
+map <C-n> :NERDTreeToggle<CR>
 
 " Show/hide invisible characters
 nnoremap <silent> <F2> :call ToggleInvisibles()<CR>
@@ -79,30 +89,3 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-
-" Setup statusline
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
-set laststatus=2
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %F
-set statusline+=%m\
-set statusline+=\ %l:%c
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\
-
