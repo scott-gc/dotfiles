@@ -24,3 +24,5 @@ cask 'iterm2'
 cask "java8"
 cask "slack"
 cask 'spotify'
+
+mas "LastPass", id: 926036361
