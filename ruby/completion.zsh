@@ -1,5 +1,5 @@
 if [[ ! -o interactive ]]; then
-    return
+  return
 fi
 
 compctl -K _rbenv rbenv

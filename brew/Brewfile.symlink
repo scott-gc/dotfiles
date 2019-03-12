@@ -21,6 +21,7 @@ brew "ruby-build"
 brew "ssh-copy-id"
 brew "tmux"
 brew "wget"
+brew "zsh"
 
 cask 'dropbox'
 cask "fork"
