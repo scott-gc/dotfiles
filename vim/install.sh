@@ -16,3 +16,5 @@ else
 fi
 
 # update or install any new pluggins added to vim
+echo "Install Plugins.."
+# vim +PluginInstall +qall
