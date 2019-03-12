@@ -8,7 +8,6 @@ set timeoutlen=350                  " delay before executing ambiguous keymap
 set vb                              " use visual bell
 set nowrap                          " disable line wrapping
 set hidden                          " hides buffers instead of closing them
-set laststatus=0                    " disable status line
 let mapleader=","                   " Change mapleader
 
 set directory=$HOME/.vim/.swap      " set swap directory
@@ -39,47 +38,46 @@ endif
 " Show the filename in the window titlebar
 set title
 
-" show statusline
-set laststatus=2
-
 " Use relative paths in buffer list
 autocmd BufReadPost * silent! lcd .
 
 " Mappings
+noremap <leader>ss :call StripWhitespace()<CR>
 
-" Toggle between relative and absolute numbers
-nnoremap <silent> <C-n> :call ToggleLineNumbers()<CR>
+" NerdTree
+map <C-t> :NERDTreeToggle<CR>
+" Enable nice colors
+let NERDChristmasTree = 1
+" Make it easy to see where we are
+let NERDTreeHighlightCursorline = 1
+" Make bookmarks visible
+let NERDTreeShowBookmarks = 1
+" Show hidden files
+let NERDTreeShowHidden = 1
+" Don't hijack NETRW
+let NERDTreeHijackNetrw = 1
+let NERDTreeIgnore=['\.$', '\~$']
 
-" Toggle NerdTree
-map <C-n> :NERDTreeToggle<CR>
+"tabs
+nnoremap th :tabprevious<CR>
+nnoremap tl :tabnext<CR>
+nnoremap td :tabclose<CR>
+nnoremap tn :tabnew<CR>
 
-" Show/hide invisible characters
-nnoremap <silent> <F2> :call ToggleInvisibles()<CR>
+" move around windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" open my vimrc in a split
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " no need to hit shift key for this
 nnoremap ; :
 
 " functions
-function! ToggleInvisibles()
-    if (&list == 1)
-        set nolist
-    else
-        set list
-    endif
-endfunction
-
-if exists('+relativenumber')
-    function! ToggleLineNumbers()
-        if (&relativenumber == 1)
-            set norelativenumber
-            set number
-        else
-            set number
-            set relativenumber
-        endif
-    endfunction
-endif
-
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -88,4 +86,3 @@ function! StripWhitespace()
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
