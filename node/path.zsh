@@ -1,1 +1,1 @@
-export PATH="./bin:/usr/local/bin:/usr/local/sbin:$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
