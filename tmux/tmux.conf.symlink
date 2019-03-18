@@ -2,6 +2,10 @@
 #-------------------------------------------------------#
 #set mouse off/on - if off, forces you to use keyboard with prefix-[
 set -g mouse on
+
+# change bind key
+set-option -g prefix C-a
+bind-key C-a send-prefix
  
 #256 colours
 set -g default-terminal "screen-256color"
@@ -53,6 +57,10 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
 #-------------------------------------------------------#
 
 #-------------------------------------------------------#
