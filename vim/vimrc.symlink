@@ -31,12 +31,27 @@ set backspace=indent,eol,start      " allow deleting auto-indentation
 set wildmode=longest,list,full      " complete file names like bash first
 set wildmenu                        " enable bash-like file completion
 
+" powerline fonts
+let g:airline_powerline_fonts = 1
+
 if !has('gui_running')
   set t_Co=256
 endif
 
 " Show the filename in the window titlebar
 set title
+
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
+
+" turn hybrid line numbers off
+:set nonumber norelativenumber
+:set nonu nornu
+
+" toggle hybrid line numbers
+:set number! relativenumber!
+:set nu! rnu!
 
 " Use relative paths in buffer list
 autocmd BufReadPost * silent! lcd .
